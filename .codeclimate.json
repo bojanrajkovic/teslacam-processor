@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "checks": {
+    "method-lines": {
+      "config": {
+        "threshold": 50
+      }
+    },
+    "file-lines": {
+      "config": {
+        "threshold": 750
+      }
+    }
+  },
+  "plugins": {
+    "git-legal": {
+      "enabled": true,
+      "config": {
+        "allow_affero_copyleft": false,
+        "allow_strong_copyleft": false
+      }
+    }
+  }
+}

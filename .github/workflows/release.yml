@@ -1,0 +1,32 @@
+name: 'Release New Version'
+on:
+  push:
+    tags:
+      - 'v*'
+jobs:
+  tagged-release:
+    name: Release New Version
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Set Up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache: yarn
+      - name: Install dependencies
+        run: yarn install --immutable --immutable-cache --check-cache
+      - name: Build Package
+        id: build
+        run: yarn pack --out %s-%v.tgz
+      - uses: softprops/action-gh-release@v1
+        name: Create release
+        with:
+          body_path: CHANGELOG.md
+          files: |
+            *.tgz
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}

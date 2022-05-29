@@ -1,0 +1,74 @@
+{
+  "name": "@bojanrajkovic/teslacam-processor",
+  "version": "0.0.1",
+  "description": "A daemon that processes Tesla dashcam recordings into combined movies, inspired by tesla_dashcam",
+  "bin": "dist/main.js",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bojanrajkovic/teslacam-processor"
+  },
+  "maintainers": [
+    {
+      "name": "Bojan Rajkovic",
+      "email": "brajkovic@coderinserepeat.com",
+      "url": "https://coderinserepeat.com"
+    }
+  ],
+  "scripts": {
+    "build": "yarn clean && tsc",
+    "release": "standard-version",
+    "clean": "rimraf -- ./dist/",
+    "prepare": "npx husky install",
+    "test": "yarn test:unit",
+    "test:all": "yarn test:unit && yarn test:integration",
+    "test:unit": "jest --runInBand --config jest.config.unit.js",
+    "test:unit:ci": "jest --runInBand --json --outputFile=jest.results.json --config jest.config.unit.ci.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "postinstall": "husky install",
+    "postpack": "yarn clean && pinst --enable",
+    "prettier:check": "prettier --check .",
+    "prettier:format": "prettier --write .",
+    "prepack": "yarn build && pinst --disable"
+  },
+  "bugs": {
+    "url": "https://github.com/bojanrajkovic/teslacam-processor/issues/new"
+  },
+  "homepage": "https://github.com/bojanrajkovic/teslacam-processor/#README",
+  "packageManager": "yarn@3.2.1",
+  "devDependencies": {
+    "@commitlint/cli": "^17.0.1",
+    "@commitlint/config-conventional": "^17.0.0",
+    "@swc/core": "^1.2.194",
+    "@swc/jest": "^0.2.21",
+    "@types/lodash": "^4.14.182",
+    "@types/node": "^17.0.36",
+    "@typescript-eslint/eslint-plugin": "^4.0.1",
+    "@typescript-eslint/parser": "^4",
+    "eslint": "^7.12.1",
+    "eslint-config-standard-with-typescript": "^21.0.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsdoc": "^39.3.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-object-merge": "https://garbage@github.com/bojanrajkovic/eslint-plugin-object-merge.git",
+    "eslint-plugin-promise": "^5.0.0",
+    "husky": "^8.0.1",
+    "jest": "^28.1.0",
+    "jest-extended": "^2.0.0",
+    "jest-mock": "^28.1.0",
+    "jest-mock-extended": "^2.0.6",
+    "jest-silent-reporter": "^0.5.0",
+    "pinst": "^3.0.0",
+    "prettier": "^2.6.2",
+    "rimraf": "^3.0.2",
+    "standard-version": "^9.5.0",
+    "typescript": "^4.7.2"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}

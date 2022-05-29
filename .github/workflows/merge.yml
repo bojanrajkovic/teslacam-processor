@@ -1,0 +1,48 @@
+name: 'Bump Version'
+on:
+  push:
+    branches:
+      - main
+jobs:
+  bump:
+    name: 'Bump Version'
+    runs-on: ubuntu-latest
+    if: "!startsWith(github.event.head_commit.message, 'chore(release)')"
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache: yarn
+      - name: Install dependencies
+        run: yarn install --immutable --immutable-cache --check-cache
+      - name: Run unit tests
+        run: yarn test:unit:ci
+      - name: Upload coverage to CodeClimate
+        uses: paambaati/codeclimate-action@v3.0.0
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_REPORTER_ID }}
+        with:
+          coverageLocations: |
+            ${{github.workspace}}/lcov-unit.info:lcov
+      - name: Run release
+        id: bump
+        run: |-
+          yarn release
+          cat CHANGELOG.md
+          export NEW_VERSION=$(jq -r '.version' package.json)
+          echo "::set-output name=NEW_VERSION::${NEW_VERSION}"
+          git add -A
+          git commit -m "chore(release): release ${NEW_VERSION}"
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          commit-message: 'chore(release): release ${{steps.bump.outputs.NEW_VERSION }}'
+          body: 'Automated PR by GitHub Actions'
+          title: 'chore(release): Release ${{ steps.bump.outputs.NEW_VERSION }}'
+          branch: 'actions/release/${{ steps.bump.outputs.NEW_VERSION }}'
+          token: ${{ secrets.GH_PR_PAT }}
