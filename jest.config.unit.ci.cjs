@@ -1,17 +1,20 @@
-const unit = require('./jest.unit.config')
-const _ = require('lodash')
-
 /**
  * Sets up test runner configuration for Jest.
  *
  * @returns {object} A Jest configuration.
  */
-module.exports = () => {
-  const base = unit()
-  return _.merge(_.cloneDeep(base), {
-    coverageReporters: ['text', ['lcov', { file: 'lcov-unit.info' }]],
-    testLocationInResults: true,
-    reporters: ['jest-silent-reporter'],
-    silent: true
-  })
-}
+module.exports = () => ({
+  transform: {
+    '^.+\\.ts$': 'ts-jest'
+  },
+  testMatch: ['**/test/unit/**/*.test.[jt]s?(x)'],
+  testEnvironment: 'node',
+  collectCoverage: true,
+  collectCoverageFrom: ['lib/**/*.ts'],
+  testLocationInResults: true,
+  coveragePathIgnorePatterns: ['/.yarn/', 'index.ts', '\\.+\\.d\\.ts'],
+  coverageReporters: ['text', ['lcov', { file: 'lcov-unit.info' }]],
+  verbose: true,
+  reporters: ['jest-silent-reporter'],
+  silent: true
+})
