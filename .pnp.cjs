@@ -43,8 +43,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-config-standard-with-typescript", "virtual:ea6e6af3924e24c1715f49e1cd07c1cba759b6ac94d46220f37f654717cd652667ff6df68a07c4b64e37d9238c3d1e18dc76ba4006bb3477b060e26225a32633#npm:21.0.1"],\
             ["eslint-plugin-import", "virtual:ea6e6af3924e24c1715f49e1cd07c1cba759b6ac94d46220f37f654717cd652667ff6df68a07c4b64e37d9238c3d1e18dc76ba4006bb3477b060e26225a32633#npm:2.26.0"],\
             ["eslint-plugin-jsdoc", "virtual:ea6e6af3924e24c1715f49e1cd07c1cba759b6ac94d46220f37f654717cd652667ff6df68a07c4b64e37d9238c3d1e18dc76ba4006bb3477b060e26225a32633#npm:39.3.2"],\
+            ["eslint-plugin-local-rules", "npm:1.1.0"],\
             ["eslint-plugin-node", "virtual:ea6e6af3924e24c1715f49e1cd07c1cba759b6ac94d46220f37f654717cd652667ff6df68a07c4b64e37d9238c3d1e18dc76ba4006bb3477b060e26225a32633#npm:11.1.0"],\
-            ["eslint-plugin-object-merge", "https://garbage@github.com/bojanrajkovic/eslint-plugin-object-merge.git#commit=de4dd29e55d1837962b0567a09b2a95fad13fec4"],\
             ["eslint-plugin-promise", "virtual:ea6e6af3924e24c1715f49e1cd07c1cba759b6ac94d46220f37f654717cd652667ff6df68a07c4b64e37d9238c3d1e18dc76ba4006bb3477b060e26225a32633#npm:5.2.0"],\
             ["husky", "npm:8.0.1"],\
             ["jest", "virtual:ea6e6af3924e24c1715f49e1cd07c1cba759b6ac94d46220f37f654717cd652667ff6df68a07c4b64e37d9238c3d1e18dc76ba4006bb3477b060e26225a32633#npm:28.1.0"],\
@@ -835,8 +835,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-config-standard-with-typescript", "virtual:ea6e6af3924e24c1715f49e1cd07c1cba759b6ac94d46220f37f654717cd652667ff6df68a07c4b64e37d9238c3d1e18dc76ba4006bb3477b060e26225a32633#npm:21.0.1"],\
             ["eslint-plugin-import", "virtual:ea6e6af3924e24c1715f49e1cd07c1cba759b6ac94d46220f37f654717cd652667ff6df68a07c4b64e37d9238c3d1e18dc76ba4006bb3477b060e26225a32633#npm:2.26.0"],\
             ["eslint-plugin-jsdoc", "virtual:ea6e6af3924e24c1715f49e1cd07c1cba759b6ac94d46220f37f654717cd652667ff6df68a07c4b64e37d9238c3d1e18dc76ba4006bb3477b060e26225a32633#npm:39.3.2"],\
+            ["eslint-plugin-local-rules", "npm:1.1.0"],\
             ["eslint-plugin-node", "virtual:ea6e6af3924e24c1715f49e1cd07c1cba759b6ac94d46220f37f654717cd652667ff6df68a07c4b64e37d9238c3d1e18dc76ba4006bb3477b060e26225a32633#npm:11.1.0"],\
-            ["eslint-plugin-object-merge", "https://garbage@github.com/bojanrajkovic/eslint-plugin-object-merge.git#commit=de4dd29e55d1837962b0567a09b2a95fad13fec4"],\
             ["eslint-plugin-promise", "virtual:ea6e6af3924e24c1715f49e1cd07c1cba759b6ac94d46220f37f654717cd652667ff6df68a07c4b64e37d9238c3d1e18dc76ba4006bb3477b060e26225a32633#npm:5.2.0"],\
             ["husky", "npm:8.0.1"],\
             ["jest", "virtual:ea6e6af3924e24c1715f49e1cd07c1cba759b6ac94d46220f37f654717cd652667ff6df68a07c4b64e37d9238c3d1e18dc76ba4006bb3477b060e26225a32633#npm:28.1.0"],\
@@ -3867,6 +3867,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["eslint-plugin-local-rules", [\
+        ["npm:1.1.0", {\
+          "packageLocation": "./.yarn/cache/eslint-plugin-local-rules-npm-1.1.0-1355600c66-83df8f4d1d.zip/node_modules/eslint-plugin-local-rules/",\
+          "packageDependencies": [\
+            ["eslint-plugin-local-rules", "npm:1.1.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["eslint-plugin-node", [\
         ["npm:11.1.0", {\
           "packageLocation": "./.yarn/cache/eslint-plugin-node-npm-11.1.0-913abe06f4-5804c4f8a6.zip/node_modules/eslint-plugin-node/",\
@@ -3891,16 +3900,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packagePeers": [\
             "@types/eslint",\
             "eslint"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["eslint-plugin-object-merge", [\
-        ["https://garbage@github.com/bojanrajkovic/eslint-plugin-object-merge.git#commit=de4dd29e55d1837962b0567a09b2a95fad13fec4", {\
-          "packageLocation": "./.yarn/cache/eslint-plugin-object-merge-https-3c19df9e74-52e7046c76.zip/node_modules/eslint-plugin-object-merge/",\
-          "packageDependencies": [\
-            ["eslint-plugin-object-merge", "https://garbage@github.com/bojanrajkovic/eslint-plugin-object-merge.git#commit=de4dd29e55d1837962b0567a09b2a95fad13fec4"],\
-            ["requireindex", "npm:1.1.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -7164,15 +7163,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/require-from-string-npm-2.0.2-8557e0db12-a03ef68954.zip/node_modules/require-from-string/",\
           "packageDependencies": [\
             ["require-from-string", "npm:2.0.2"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["requireindex", [\
-        ["npm:1.1.0", {\
-          "packageLocation": "./.yarn/cache/requireindex-npm-1.1.0-445c011741-397057d97d.zip/node_modules/requireindex/",\
-          "packageDependencies": [\
-            ["requireindex", "npm:1.1.0"]\
           ],\
           "linkType": "HARD"\
         }]\

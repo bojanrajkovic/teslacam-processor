@@ -1,9 +1,12 @@
 module.exports = {
-  plugins: ['jsdoc', 'object-merge'],
+  plugins: ['jsdoc', 'eslint-plugin-local-rules'],
   extends: ['standard-with-typescript', 'plugin:jsdoc/recommended'],
   ignorePatterns: ['dist', 'coverage'],
   parserOptions: {
-    project: './tsconfig.json'
+    project: './tsconfig.json',
+    // Override `lib` from tsconfig, because the typescript-eslint suite
+    // doesn't support es2022 yet.
+    lib: ['es2021']
   },
   env: {
     es6: true,
@@ -57,7 +60,7 @@ module.exports = {
         definedTypes: ['unknown', 'never']
       }
     ],
-    'object-merge/no-side-effects': 'error',
+    'local-rules/no-side-effects': 'error',
     '@typescript-eslint/member-delimiter-style': [
       'error',
       {
